@@ -39,7 +39,7 @@ RUN cd /tmp/mage_setup && ./setup.sh
 
 ### Process management
 RUN apt-get install -y supervisor
-ADD conf/supervisor/ /etc/supervisor/conf.d/
+ADD conf/supervisor/ /etc/supervisor/
 
 ### Clean-up
 # clean packages
@@ -47,6 +47,5 @@ RUN apt-get clean
 RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 EXPOSE 22 80
-#CMD ["/usr/bin/supervisord", "-c /etc/supervisor/supervisord.conf"]
-#CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord"]
 
