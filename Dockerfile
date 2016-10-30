@@ -41,6 +41,10 @@ RUN cd /tmp/mage_setup && ./setup.sh
 RUN apt-get install -y supervisor
 ADD conf/supervisor/ /etc/supervisor/
 
+
+RUN apt-get install -y varnish
+ADD conf/varnish/etc/ /etc/
+
 ### Clean-up
 # clean packages
 RUN apt-get clean
